@@ -5,63 +5,46 @@ import processing.core.PApplet;
 public class HelloProcessing extends PApplet
 {
 
-	public void settings()
+	public void settings() //methods (functions in C)
 	{
-		size(500, 500);
+		size(500, 500); // size of the window, pApplet superclass sets the size of the drawing window
 	}
 
-	public void setup() {
-		colorMode(HSB);
+	public void setup() { 
+
+		//colorMode(HSB);
+		colorMode(RGB);
 		background(0);
-
-		x1 = random(0, width);
-		x2 = random(0, width);
-		y1 = random(0, height);
-		y2 = random(0, height);
-
-		float range = 5;
-
-		x1dir = random(-range, range);
-		x2dir = random(-range, range);
-		y1dir = random(-range, range);
-		y2dir = random(-range, range);
-
-		smooth();
 		
 	}
-
-	float x1, y1, x2, y2;
-	float x1dir, x2dir, y1dir, y2dir;
-	float c = 0;
 	
-	public void draw()
+	public void draw() // called once per frame, framerate processign runs at 60 frames per second, draw method gets called 60 times a second
 	{	
-		strokeWeight(2);
-		stroke(c, 255, 255);
-		c = (c + 1f) % 255;
-		line(x1, y1, x2, y2);
+		//stroke(255);
+		//background(200); // grey background, grey scale, 255 is white, 0 is black using colorMode(HSB);
+		background(255, 255, 0); //using colorMode(RGB); red, green, blue, creates yellow 
+		line(10, 10, 200, 200); // x1, y1, -> top left of the line x2, y2 -> bottom right of the line
+		circle(200, 250, 50); // cx, cy, r
+		ellipse(50, 200, 90, 200); // cx, cy, w, h
 
-		x1 += x1dir;
-		x2 += x2dir;
-		y1 += y1dir;
-		y2 += y2dir;
+		stroke(0); //outline
+		//fill(0, 0, 255); //RGB
+		//noFill();
+		noStroke();
+
+		rectMode(CENTER); //makes first two parameters the center of the triangle 
+
+		rect(300, 20, 100, 20); // rectangle - top left x, top left y, w, h
+
+		rectMode(CORNER); // first two parameters means top left x, top left y and width and height
+		rect(200, 20, 100, 20); // rectangle - top left x, top left y, w, h
+
+		point(20, 300); //plot single pixel, x, y
+
+		triangle(10, 400, 50, 450, 300, 200); //x1, y1, x2, y2, x3, y3 
+
+
 		
-		if (x1 < 0 || x1 > width)
-		{
-			x1dir = - x1dir;
-		}
-		if (y1 < 0 || y1 > height)
-		{
-			y1dir = - y1dir;
-		}
 
-		if (x2 < 0 || x2 > width)
-		{
-			x2dir = - x2dir;
-		}
-		if (y2 < 0 || y2 > height)
-		{
-			y2dir = - y2dir;
-		}
 	}
 }
