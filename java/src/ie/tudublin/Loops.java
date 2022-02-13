@@ -194,6 +194,43 @@ public class Loops extends PApplet {
             }
 			case 9:
             {
+                /*rectMode(CENTER);
+                int numSquares = 11;
+                float w = (width / (float) numSquares);
+                for(int i = 1 ; i < numSquares ; i ++)
+                {
+                    fill(100, 255 ,100);
+                    text(i-6, 5, (w*i)-13);
+                    for(int j = 1 ; j < numSquares ; j ++)
+                    {
+                        fill(0);
+                        stroke(100, 255 ,100);
+                        square(w*i, w*j, w);
+                    }
+                    fill(100, 255 ,100);
+                    text(i-6, (w*i)-25, 15);    
+                }*/
+                
+                /*int numSquares = 20;
+                float w = (width / (float) numSquares);
+                for(int i = 0 ; i < numSquares ; i ++)
+                {
+                    for(int j = 0 ; j < numSquares ; j ++)
+                    {
+                        if ((i+j) % 2 == 0) {
+                            fill(48, 25, 52);
+                        } 
+                        else {
+                            fill(185, 76, 225);
+                        }
+
+                        square(w*i, w*j, w);
+                    }
+ 
+                }
+                */
+
+                
                 int sides = (mouseX / 50);
                 float theta = TWO_PI / (float) sides;
                 float radius = 200;
@@ -206,6 +243,9 @@ public class Loops extends PApplet {
                     float y2 = cos(theta * i) * radius;
                     line(cx + x1, cy + y1, cx + x2, cy + y2);
                 }
+                
+
+                break;
             }
 		}
 		
