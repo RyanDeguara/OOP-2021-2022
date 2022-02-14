@@ -108,10 +108,18 @@ public class Loops extends PApplet {
 
                 */
                 // with map
-                int numRects = (int)(mouseX / 10); // amount of rectangle bars on the screen
+
+                // map (a,b,c,d,e) a = input value, b - c start and end of the first range, d - e, start and end of the end range
+                // map (-2, 10, 90, 200, 233)
+                // r1 = c -b                //   = 80
+                // r2 = e - d               //   = 33
+                // return (((a-b)/r1) *r2) + d //= (((-12)/80) *33) + 200 = 195
+                //
+                int numRects = (int)(mouseX / 20.0f); // amount of rectangle bars on the screen
                 float w = width / (float) numRects;
                 for(int i = 0 ; i < numRects ; i ++)
                 {
+                    noStroke();
                     fill(map(i, 0, numRects, 0, 255), 255, 255); // filling the rectangles with colours 
                     rect(map(i, 0, numRects, 0, 500), 0, w, height);
                 }
@@ -121,7 +129,7 @@ public class Loops extends PApplet {
             }
 			case 4:
             {
-                rectMode(CORNER);
+                /*(rectMode(CORNER);
                 int numRects = (int) mouseX / 10;
                 float w = width / (float) numRects;
                 float cgap = 255 / (float) numRects;
@@ -129,7 +137,16 @@ public class Loops extends PApplet {
                 {
                     fill(cgap * i, 255, 255);
                     rect(i * w, i * w, w, w);
+                }*/
+                
+                int numRects = (int) (mouseX / 10.0f);
+                float w = width / (float) numRects;
+                for(int i = 0 ; i < numRects ; i ++)
+                {
+                    fill(map(i, 0, numRects, 0, 255), 255, 255);
+                    rect(map(i, 0, numRects, 0, 500), i * w, w, w);
                 }
+
                 break;
             }
 			case 5:
