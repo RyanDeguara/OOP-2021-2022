@@ -20,6 +20,13 @@ public class Main
         processing.core.PApplet.runSketch( a, new Loops());
     }
 
+    public static void Arrays()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Arrays());
+    }
+
+
     public void cat()
     {
         System.out.println("Hello world");
@@ -45,7 +52,7 @@ public class Main
     }
     public static void main(String[] args)
     {
-        loops();
+        Arrays();
 
         // Tara Misty
         // Tara Tara
