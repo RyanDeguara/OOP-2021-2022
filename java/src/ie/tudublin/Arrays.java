@@ -55,9 +55,9 @@ public class Arrays extends PApplet
             {
                 minIndex = i;
             }
-            if (rainfall[i] < rainfall[maxIndex])
+            if (rainfall[i] > rainfall[maxIndex])
             {
-                minIndex = i;
+                maxIndex = i;
             }
 
             total = total + rainfall[i];
