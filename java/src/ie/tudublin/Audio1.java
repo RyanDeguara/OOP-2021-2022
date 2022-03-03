@@ -36,7 +36,7 @@ public class Audio1 extends PApplet
 
     public void settings()
     {
-        size(1024, 500);
+        size(500, 500);
     }
 
     public void setup()
@@ -45,7 +45,7 @@ public class Audio1 extends PApplet
         // Uncomment this to use the microphone
         // ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
         // ab = ai.mix; 
-        ap = minim.loadFile("heroplanet.mp3", 1024);
+        ap = minim.loadFile("heroplanet.mp3", 500);
         ap.play();
         ab = ap.mix;
         colorMode(HSB);
@@ -73,20 +73,61 @@ public class Audio1 extends PApplet
         average= sum / (float) ab.size();
 
         smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f);
-
+        float cx = width/2;
+        float cy = height/2;
         switch (mode) {
 			case 0:
+            {
+                background(0);
                 for(int i = 0 ; i < ab.size() ; i ++)
                 {
                     //float c = map(ab.get(i), -1, 1, 0, 255);
                     float c = map(i, 0, ab.size(), 0, 255);
                     stroke(c, 255, 255);
                     float f = lerpedBuffer[i] * halfH * 4.0f;
-                    line(i, halfH + f, i, halfH - f);                    
+                    line(i, halfH + f, halfH - f, i);                    
                 }
-        case 1:
-                {}
+                break;
             }
+            case 1:
+                {
+                    background(0);
+                    for (int i = 0; i < ab.size(); i++)
+                    {
+                        float c = map(i, 0, ab.size(), 0, 255);
+                        stroke(c, 255, 255);
+                        float f = lerpedBuffer[i] * ab.get(i) * 4.0f;
+                        line(i, halfH - f * halfH * 4, i, halfH + f * halfH * 4);
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    background(0);
+                    for (int i = 0; i < ab.size(); i++)
+                    {
+                        float c = map(i, 0, ab.size(), 0, 255);
+                        stroke(c, 255, 255);
+                        float f = lerpedBuffer[i] * ab.get(i) * 4.0f;
+                        line(0, i, halfH * f* 4, i);
+                        line(width, i, width - (halfH * f* 4), i);
+                        line(i, 0, i, (halfH * f* 4));
+                        line(i, height, i, height - (halfH * f* 4));
+                    }
+                    break;
+                }
+            
+            case 3:
+            {
+                background(0);
+                strokeWeight(2);
+                noFill();
+                float r = map(smoothedAmplitude, 0, 0.5f, 100, 2000);
+                float c = map(smoothedAmplitude, 0, 0.5f, 0, 255);
+                stroke(c, 255, 255);
+                circle(cx, cy, r);
+            }
+        }
 
         
         // Other examples we made in the class
