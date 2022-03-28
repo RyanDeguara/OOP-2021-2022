@@ -79,6 +79,7 @@ public class Audio1 extends PApplet
         
         float cx = width / 2;
         float cy = height / 2;
+        
 
         switch (mode) {
 			case 0:
@@ -151,7 +152,18 @@ public class Audio1 extends PApplet
                 circle(i, halfH - f, 5);                    
             }
             break;
+        
+        case 5:
+        {
+            background(0);
+            c = map(average, 0, 1, 0, 255);
+            stroke(c, 255, 255);        
+            strokeWeight(2);
+            noFill();
+            ellipse(width / 2, height / 2, 50 + (smoothedAmplitude * 500), 50 + (smoothedAmplitude * 500));                
+            break;
 
+        }
         }
         
 
