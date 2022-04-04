@@ -85,6 +85,8 @@ public class ColorfulLife extends PApplet {
         }
     }
 
+    
+
     public float getCell(float[][] board, int row, int col)
     {
         if (row >= 0 && row < size && col >= 0 && col < size)
