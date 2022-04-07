@@ -4,13 +4,14 @@ import processing.core.PApplet;
 public class YASC extends PApplet 
 {
 
-    Player p, p1, h;
+    Player p, p1;
+    Health h;
 
     public void setup()
     {
         p = new Player(250, 250, 50, this);
         p1 = new Player(50, 50, 100, this);
-        h = new Player(250, 250, 50, this);
+        h = new Health(50, this);
     }
 
     public void settings()

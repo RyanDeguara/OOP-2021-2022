@@ -58,6 +58,6 @@ public class Player
             }
         }
         fx = YASC.sin(rotation);
-        fy = - YASC.sin(rotation);
+        fy = - YASC.cos(rotation);
     }
 }

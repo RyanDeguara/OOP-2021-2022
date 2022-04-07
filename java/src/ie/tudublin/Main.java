@@ -65,6 +65,13 @@ public class Main
         processing.core.PApplet.runSketch( a, new YASC());
     }
 
+    public static void timing()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new TimingExample());
+    }
+
+
     public void cat()
     {
         System.out.println("Hello world");

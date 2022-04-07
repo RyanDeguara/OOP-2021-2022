@@ -9,7 +9,7 @@ public class Health
     float rotation;
     float fx, fy;
 
-    public Health(float x, float y, float w)
+    public Health(float w, YASC yasc)
     {
         this.x = -50;
         this.y = yasc.random(yasc.height);
