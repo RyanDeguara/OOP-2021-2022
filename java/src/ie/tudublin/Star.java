@@ -14,13 +14,14 @@ public class Star
     private float absMag;
 
     
-
+    // to string()
     @Override
     public String toString() {
         return "Star [absMag=" + absMag + ", displayName=" + displayName + ", distance=" + distance + ", hab=" + hab
                 + ", xG=" + xG + ", yG=" + yG + ", zG=" + zG + "]";
     }
 
+    // constructor for each row
     public Star(TableRow tr)
     {
         this(
@@ -33,7 +34,8 @@ public class Star
             tr.getFloat("AbsMag")
         );
     }
-    
+
+    // constructor
     public Star(boolean hab, String displayName, float distance, float xG, float yG, float zG, float absMag) {
         this.hab = hab;
         this.displayName = displayName;
@@ -87,6 +89,7 @@ public class Star
         this.absMag = absMag;
     }
 
+    //renders all the stars
     public void render(StarMap pa)
     {
         float x = PApplet.map(xG, -5, 5, pa.border, pa.width - pa.border);

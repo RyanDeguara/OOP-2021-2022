@@ -3,12 +3,14 @@ package ie.tudublin;
 import processing.core.PApplet;
 
 public class LifeBoard {
-    boolean[][] board;
-    boolean[][] next;
-    int size;
-    float cellSize;
-    PApplet pa;
+    // private and public fields
+    private boolean[][] board;
+    private boolean[][] next;
+    public int size;
+    public float cellSize;
+    private PApplet pa;
 
+    // constructor
     public LifeBoard(int size, PApplet pa)
     {
         board = new boolean[size][size];
@@ -124,8 +126,8 @@ public class LifeBoard {
             {
                 float x = PApplet.map(col, 0, size, 0, pa.width);
                 float y = PApplet.map(row, 0, size, 0, pa.height);
-                x = cellSize * col;
-                y = cellSize * row;
+                //x = cellSize * col;
+                //y = cellSize * row;
 
                 if (board[row][col])
                 {
@@ -140,4 +142,6 @@ public class LifeBoard {
         }
         
     }
+
+    
 }

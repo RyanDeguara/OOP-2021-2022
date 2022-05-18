@@ -2,14 +2,10 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-public class Health extends GameObject implements PowerUp{
+// implement for ammo
+public class Ammo extends GameObject implements PowerUp{
 
-    @Override
-    public void applyTo(Player p) {
-        p.health += 10;        
-    }
-
-    public Health(YASC yasc)
+    public Ammo(YASC yasc)
     {
         super(yasc, 0, 0, 0);
         respawn();            
@@ -58,15 +54,9 @@ public class Health extends GameObject implements PowerUp{
         yasc.translate(x, y);
         yasc.rotate(rotation);
         // Write this!!
-        yasc.stroke(255);
-        yasc.line(-halfW, halfW, -halfW, -halfW);
-        yasc.line(-halfW, -halfW, halfW, -halfW);
-        yasc.line(halfW, -halfW, halfW, halfW);        
-        yasc.line(halfW, halfW, -halfW, halfW);
-
-        yasc.line(0, -halfW, 0, halfW);
-        yasc.line(-halfW, 0, halfW, 0);
-
+        yasc.stroke(0, 255, 0);
+        yasc.noFill();
+        yasc.triangle(-halfW, halfW, 0, - halfW, halfW, halfW);        
         yasc.popMatrix();
     }
 
@@ -117,5 +107,12 @@ public class Health extends GameObject implements PowerUp{
 
     public void setW(float w) {
         this.w = w;
+    }
+
+    // interface method
+    // also in health - apply health powerup, override method from superclass
+    @Override
+    public void applyTo(Player p) {
+        p.ammo += 10;        
     }
 }

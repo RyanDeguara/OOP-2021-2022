@@ -160,8 +160,8 @@ public class ColorfulLife extends PApplet {
 
     public void settings()
     {
-        //size(800, 800);
-        fullScreen(P3D, SPAN);
+        size(800, 800);
+        //fullScreen(P3D, SPAN);
     }
     
     int mode = 0;

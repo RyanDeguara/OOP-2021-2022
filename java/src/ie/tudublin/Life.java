@@ -6,6 +6,7 @@ public class Life extends PApplet {
 	
 	LifeBoard board;
 
+	// Drawing the cells function
 	public void mouseDragged()
 	{
 		//int col = (int) (mouseX / (board.cellSize));
